@@ -3,6 +3,9 @@ resource "aws_instance" "LB" {
   instance_type = "t2.micro"
   key_name = "mykey"
   private_ip = "192.168.0.11"
+  tags = {
+  Name              = "LB"
+        }
 # associando a VPC
 subnet_id = aws_subnet.pbsubnet.id
 vpc_security_group_ids = [ "${aws_security_group.sclb.id}", "${aws_security_group.ssh_ws.id}", "${aws_security_group.int.id}"]
@@ -17,6 +20,9 @@ resource "aws_instance" "WEB" {
   instance_type = "t2.micro"
   key_name = "mykey"
   private_ip = "192.168.0.12"
+  tags = {
+  Name              = "WEB"
+        }
 # associando a VPC
 subnet_id = aws_subnet.pbsubnet.id
 vpc_security_group_ids = [ "${aws_security_group.ssh_ws.id}", "${aws_security_group.int.id}"]
@@ -31,6 +37,9 @@ resource "aws_instance" "DB" {
   instance_type = "t2.micro"
   key_name = "mykey"
   private_ip = "192.168.0.13"
+  tags = {
+  Name              = "DB"
+        }
 # associando a VPC
 subnet_id = aws_subnet.pbsubnet.id
 vpc_security_group_ids = [ "${aws_security_group.ssh_ws.id}", "${aws_security_group.int.id}"]
