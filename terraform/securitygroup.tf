@@ -6,7 +6,7 @@ resource "aws_security_group" "sclb" {
     from_port = 80
     to_port = 80
     protocol = "tcp"
-    cidr_blocks = ["0.0.0.0/0"]
+    cidr_blocks = ["13.48.23.63/32"]
   }
   ingress {
     from_port   = 80
